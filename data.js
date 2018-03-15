@@ -55,16 +55,39 @@ function ListNode (item, prev, next) {
 }
 
 LinkedList.prototype.addToTail = function (item) {
-  // your code here
+  let addedNode = new ListNode(item)
+  if (!this.head) {
+    this.head = addedNode
+    this.tail = addedNode
+  } else {
+    this.tail.next = addedNode
+    let oldTail = this.tail
+    this.tail = addedNode
+    this.tail.prev = oldTail
+  }
   return this; // for chaining, do not edit
 };
 
 LinkedList.prototype.removeFromTail = function () {
-  // your code here
+  if (!this.tail) {
+    return
+  }
+  let oldTail = this.tail
+  if (this.tail === this.head) {
+    this.tail = this.head = null
+  } else {
+    this.tail = oldTail.prev
+    this.tail.next = null
+  }
+  return oldTail.item
 };
 
 LinkedList.prototype.forEach = function (iterator) {
-  // your code here
+  let executionNode = this.head
+  while (executionNode) {
+    iterator(executionNode.item)
+    executionNode = executionNode.next
+  }
 };
 
 //-----------------------------------------
