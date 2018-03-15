@@ -23,7 +23,7 @@ describe('An association list', function () {
     }));
   });
 
-  xit('can get a value for a key', function () {
+  it('can get a value for a key', function () {
     alist.set('color', 'blue');
     expect(alist.get('color')).toBe('blue');
   });
@@ -41,7 +41,7 @@ describe('An association list', function () {
     expect(alist.head.next.next.value).toBe('white');
   });
 
-  xit('can get multiple vals by key', function () {
+  it('can get multiple vals by key', function () {
     alist
     .set('color', 'grey')
     .set('name', 'Gandalf')
@@ -51,7 +51,7 @@ describe('An association list', function () {
     expect(alist.get('nickname')).toBe('Mithrandir');
   });
 
-  xit('gets the most recent value for a key', function () {
+  it('gets the most recent value for a key', function () {
     // there are two standard ways of doing this: one optimized for speed,
     // the other for memory. If you get one, try also to figure out the other.
     alist
@@ -63,7 +63,7 @@ describe('An association list', function () {
     expect(alist.get('color')).toBe('white');
   });
 
-  xit('returns `undefined` for unset keys', function () {
+  it('returns `undefined` for unset keys', function () {
     // the following lines are mostly so this spec does not pass "early"
     alist.set('AlistSetGetWorking', true);
     expect(alist.get('AlistSetGetWorking')).toBe(true);

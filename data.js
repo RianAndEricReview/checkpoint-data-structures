@@ -95,7 +95,6 @@ LinkedList.prototype.forEach = function (iterator) {
 
 function Alist () {
   this.aListArr = [null]
-  this.nextTailIndex = 0
   this.head = this.aListArr[0]
 }
 
@@ -107,20 +106,18 @@ function AlistNode (key, value, next) {
 
 Alist.prototype.set = function (key, value, next) {
   let addedNode = new AlistNode(key, value, this.aListArr[0])
-  if (!this.nextTailIndex) {
+  if (!this.aListArr.length) {
     this.aListArr.unshift(addedNode)
-    this.nextTailIndex++
   } else {
     this.aListArr.unshift(addedNode)
   }
   this.head = this.aListArr[0]
-  console.log('the list', this.aListArr)
-  console.log('the head', this.head)
   return this; // for chaining; do not edit
 };
 
 Alist.prototype.get = function (key) {
-  // your code here
+  let searchValue = this.aListArr.slice(0, -1).find((item) => item.key === key)
+  return searchValue ? searchValue.value : undefined
 };
 
 
