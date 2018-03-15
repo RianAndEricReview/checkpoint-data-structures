@@ -94,7 +94,9 @@ LinkedList.prototype.forEach = function (iterator) {
 // Association lists
 
 function Alist () {
-  // your code here
+  this.aListArr = [null]
+  this.nextTailIndex = 0
+  this.head = this.aListArr[0]
 }
 
 function AlistNode (key, value, next) {
@@ -103,8 +105,17 @@ function AlistNode (key, value, next) {
   this.next = next;
 }
 
-Alist.prototype.set = function (key, value) {
-  // your code here
+Alist.prototype.set = function (key, value, next) {
+  let addedNode = new AlistNode(key, value, this.aListArr[0])
+  if (!this.nextTailIndex) {
+    this.aListArr.unshift(addedNode)
+    this.nextTailIndex++
+  } else {
+    this.aListArr.unshift(addedNode)
+  }
+  this.head = this.aListArr[0]
+  console.log('the list', this.aListArr)
+  console.log('the head', this.head)
   return this; // for chaining; do not edit
 };
 
