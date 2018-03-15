@@ -179,16 +179,48 @@ BinarySearchTree.prototype.insert = function (val) {
 
 BinarySearchTree.prototype.min = function () {
   // your code here
+  if(!this.left){
+    return this.value
+  } else {
+    return this.left.min()
+  }
 };
 
 BinarySearchTree.prototype.max = function () {
   // your code here
+  if(!this.right){
+    return this.value
+  } else {
+    return this.right.max()
+  }
 };
 
 BinarySearchTree.prototype.contains = function (val) {
   // your code here
+  if(val === this.value){
+    return true
+  } else if (val < this.value){
+    if(this.left){
+      return this.left.contains(val)
+    } else {
+      return false
+    }
+  } else {
+    if(this.right){
+      return this.right.contains(val)
+    } else {
+      return false
+    }
+  }
 };
 
 BinarySearchTree.prototype.traverse = function (iterator) {
   // your code here
+  if(this.left){
+    this.left.traverse(iterator)
+  }
+  iterator(this.value)
+  if(this.right){
+    this.right.traverse(iterator)
+  }
 };
