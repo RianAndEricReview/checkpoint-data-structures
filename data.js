@@ -106,11 +106,7 @@ function AlistNode (key, value, next) {
 
 Alist.prototype.set = function (key, value, next) {
   let addedNode = new AlistNode(key, value, this.aListArr[0])
-  if (!this.aListArr.length) {
-    this.aListArr.unshift(addedNode)
-  } else {
-    this.aListArr.unshift(addedNode)
-  }
+  this.aListArr.unshift(addedNode)
   this.head = this.aListArr[0]
   return this; // for chaining; do not edit
 };
