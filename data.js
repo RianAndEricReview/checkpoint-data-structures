@@ -131,15 +131,22 @@ function hash (key) {
 function HashTable () {
   this.buckets = Array(20);
   // your code here
+  for(let i = 0; i<this.buckets.length; i++){
+    this.buckets[i] = new Alist()
+  }
 }
 
 HashTable.prototype.set = function (key, value) {
   // your code here. DO NOT simply set a prop. on an obj., that is cheating.
+  let hashedKey = hash(key)
+  this.buckets[hashedKey].set(key, value)
   return this; // for chaining, do not edit
 };
 
 HashTable.prototype.get = function (key) {
   // your code here. DO NOT simply get a prop. from an obj., that is cheating.
+  let hashedKey = hash(key)
+  return this.buckets[hashedKey].get(key)
 };
 
 //-----------------------------------------
