@@ -154,10 +154,26 @@ HashTable.prototype.get = function (key) {
 
 function BinarySearchTree (val) {
   // your code here
+  this.value = val
+  this.left = null
+  this.right = null
 }
 
 BinarySearchTree.prototype.insert = function (val) {
   // your code here
+  if(val < this.value){
+    if(this.left){
+      this.left.insert(val)
+    } else {
+      this.left = new BinarySearchTree(val)
+    }
+  } else {
+    if(this.right){
+      this.right.insert(val)
+    } else {
+      this.right = new BinarySearchTree(val)
+    }
+  }
   return this; // for chaining, do not edit
 };
 
