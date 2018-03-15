@@ -4,8 +4,6 @@
 
 describe('A doubly-linked list', function () {
 
-  pending('This is an extra-credit suite. Remove this line to try it.');
-
   var list, uniqueObj = { id: 789 };
   beforeEach(function () {
     list = new LinkedList();

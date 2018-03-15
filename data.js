@@ -9,16 +9,16 @@ will not need to edit the lines above and below them.
 // Stacks
 
 function Stack () {
-  // your code here
+  this.theStack = []
 }
 
 Stack.prototype.add = function (item) {
-  // your code here
+  this.theStack.push(item)
   return this; // for chaining, do not edit
 };
 
 Stack.prototype.remove = function () {
-  // your code here
+  return this.theStack.pop()
 };
 
 //-----------------------------------------
@@ -27,16 +27,16 @@ Stack.prototype.remove = function () {
 // EXTRA CREDIT: remove the `pending` line in the spec to attempt.
 
 function Queue () {
-  // your code here
+  this.theQueue = []
 }
 
 Queue.prototype.add = function (item) {
-  // your code here
+  this.theQueue.push(item)
   return this; // for chaining, do not edit
 };
 
 Queue.prototype.remove = function () {
-  // your code here
+  return this.theQueue.shift()
 };
 
 //-----------------------------------------
